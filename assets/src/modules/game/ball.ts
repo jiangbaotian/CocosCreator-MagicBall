@@ -21,6 +21,9 @@ export default class Ball extends cc.Component {
 	// ///////////////////////////
 	// ///cc.class 生命周期函数
 	// /////////////////////////
+	protected onLoad() {
+		this.node.group = Group.BallInRecycle;
+	}
 	protected update(dt) {
 		// 回收小球
 		if (this.isTouchGround) {

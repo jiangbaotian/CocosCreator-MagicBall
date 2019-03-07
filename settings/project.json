@@ -1,18 +1,19 @@
 {
   "collision-matrix": [
     [
-      true,
+      false,
       true,
       true
     ],
     [
       true,
+      false,
       false
     ],
     [
       true,
       false,
-      true
+      false
     ]
   ],
   "design-resolution-height": 640,
@@ -42,6 +43,5 @@
     "width": 960
   },
   "use-customize-simulator": false,
-  "use-project-simulator-setting": false,
-  "start-scene": "current"
+  "use-project-simulator-setting": false
 }

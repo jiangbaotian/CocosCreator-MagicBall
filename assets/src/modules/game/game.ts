@@ -1,7 +1,7 @@
 import { GameConfig, GameEvent, Group } from "../../model/config";
-import MagicBallModel from "../../model/magicBallModel";
-import Barrier from "./barrier";
 import Ball from "./ball";
+import Barrier from "./barrier";
+import MagicBallModel from "../../model/magicBallModel";
 
 const {ccclass, property} = cc._decorator;
 
@@ -21,6 +21,8 @@ export default class Game extends cc.Component {
 	private prefabBarriers: [cc.Prefab] = [];
 	@property(cc.Prefab)
 	private prefabBall: cc.Prefab = null;
+	@property(cc.Node)
+	private nodeOverGame: cc.Node = null;
 	// ///////////////////////////
 	// ///成员变量
 	// /////////////////////////
@@ -116,7 +118,8 @@ export default class Game extends cc.Component {
 	 * @description 增加分数
 	 */
 	private addOneScore() {
-		this.score += 1;
+		MagicBallModel.getInstance().gameScore += 1;
+		this.labScore.string = MagicBallModel.getInstance().gameScore.toString();
 	}
 
 	/**
@@ -130,7 +133,9 @@ export default class Game extends cc.Component {
 		ballCom.initialize(this.recycleBalls.bind(this));
 		this.node.addChild(ball);
 		ball.position = position;
-		ball.group = Group.BallInRecycle;
+		// 没有作用
+		// ball.group = Group.BallInRecycle;
+		// ballCom.node.group = Group.BallInRecycle;
 		this.balls.push(ball);
 		this.labBall.string = this.balls.length.toString();
 	}
@@ -159,7 +164,7 @@ export default class Game extends cc.Component {
 		const spEmitterPosition = MagicBallModel.getInstance().spEmitterPosition;
 		let rigiBody = ball.getComponent(cc.RigidBody);
 		rigiBody.active = false;
-		const position: [cc.Vec2] = [];
+		const position = [];
 		position.push(ball.position);
 		// 放置在发射器的下方20个像素
 		// 如果不这样子，由于碰撞原因，小球会被墙反弹
@@ -218,5 +223,10 @@ export default class Game extends cc.Component {
 
 	private gameOver() {
 		console.log("游戏结束");
+		this.nodeOverGame.active = true;
+	}
+
+	private onClickRestartBtnEvent(event) {
+		cc.director.loadScene("mainGame");
 	}
 }
