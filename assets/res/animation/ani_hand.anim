@@ -1,0 +1,82 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "ani_hand",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 2,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": "2",
+  "curveData": {
+    "paths": {
+      "sp_line": {
+        "props": {
+          "rotation": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 0.5,
+              "value": 30
+            },
+            {
+              "frame": 1,
+              "value": 0
+            },
+            {
+              "frame": 1.5,
+              "value": -30
+            },
+            {
+              "frame": 2,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "sp_hand": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                7,
+                -253
+              ]
+            },
+            {
+              "frame": 0.5,
+              "value": [
+                -236,
+                -152
+              ]
+            },
+            {
+              "frame": 1,
+              "value": [
+                7,
+                -253
+              ]
+            },
+            {
+              "frame": 1.5,
+              "value": [
+                236,
+                -152
+              ]
+            },
+            {
+              "frame": 2,
+              "value": [
+                7,
+                -253
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}
